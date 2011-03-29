@@ -5,18 +5,13 @@ class Perl::Stack::Function
     @stack.enter
     @stack.savetmps
 
-    if args.any?
-      begin
-        @stack.pushmark
-        Hash[[args]].each_pair do |arg, type|
-          value = arg.to_perl
-          value = Perl.Perl_newRV_noinc(Perl.PL_curinterp, value) if type == :ref
-
-          push(value)
-        end
-      ensure
-        @stack.putback
-      end
+    case args
+    when nil
+      # nothing
+    when Hash
+      init_with_hash(args)
+    else
+      init_with_array(Array(args))
     end
 
     yield(self)
@@ -37,5 +32,36 @@ class Perl::Stack::Function
     return @stack.pops
   ensure
     @stack.putback
+  end
+
+protected
+  def init_with_hash(args)
+    return unless args.any?
+
+    begin
+      @stack.pushmark
+      args.each_pair do |type, arg|
+        value = arg.to_perl
+        value = Perl.Perl_newRV_noinc(Perl.PL_curinterp, value) if type == :ref
+        push(value)
+      end
+    ensure
+      @stack.putback
+    end
+  end
+
+  def init_with_array(args)
+    return unless args.any?
+
+    args = Array(args)
+    begin
+      @stack.pushmark
+      args.each do |arg|
+        value = arg.to_perl
+        push(value)
+      end
+    ensure
+      @stack.putback
+    end
   end
 end

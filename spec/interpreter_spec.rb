@@ -100,7 +100,7 @@ describe Perl::Interpreter do
       func = subject.eval("require 'dumpvar.pl'; sub { dumpValue(\\@_); };")
 
       ret = capture_stdout_descriptor do
-        subject.call(func, ["42", :string], :void)
+        subject.call(func, "42", :void)
       end
       ret = ret.split(/\n/)
       ret.length.should == 1
@@ -111,7 +111,7 @@ describe Perl::Interpreter do
       func = subject.eval("require 'dumpvar.pl'; sub { dumpValue(\\@_); };")
 
       ret = capture_stdout_descriptor do
-        subject.call(func, ["42", :ref], :void)
+        subject.call(func, {:ref => "42"}, :void)
       end
       ret = ret.split(/\n/)
       ret.length.should == 2
@@ -123,7 +123,7 @@ describe Perl::Interpreter do
       func = subject.eval("require 'dumpvar.pl'; sub { dumpValue(\\@_); };")
 
       ret = capture_stdout_descriptor do
-        subject.call(func, [{'a' => 'b'}, :ref], :void)
+        subject.call(func, {:ref => {'a' => 'b'}}, :void)
       end
       ret = ret.split(/\n/)
       ret.length.should == 2

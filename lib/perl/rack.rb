@@ -9,7 +9,7 @@ module Perl
     end
 
     def call(env)
-      @interpreter.call(@app, [clean_env(env), :ref], :scalar) do |ret|
+      @interpreter.call(@app, {:ref => clean_env(env)}, :scalar) do |ret|
         value = ret.deref.value # Array
 
         status = value[0].value
