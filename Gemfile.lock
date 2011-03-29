@@ -4,11 +4,21 @@ GEM
     ZenTest (4.5.0)
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
+    daemon_controller (0.2.6)
     daemons (1.1.0)
     diff-lcs (1.1.2)
     eventmachine (0.12.10)
+    fastthread (1.0.7)
     ffi (1.0.6)
       rake (>= 0.8.7)
+    file-tail (1.0.5)
+      spruz (>= 0.1.0)
+    passenger (3.0.5)
+      daemon_controller (>= 0.2.5)
+      fastthread (>= 1.0.1)
+      file-tail
+      rack
+      rake (>= 0.8.1)
     rack (1.2.1)
     rake (0.8.7)
     rspec (2.0.1)
@@ -21,6 +31,7 @@ GEM
     rspec-mocks (2.0.1)
       rspec-core (~> 2.0.1)
       rspec-expectations (~> 2.0.1)
+    spruz (0.2.5)
     thin (1.2.8)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -32,6 +43,7 @@ PLATFORMS
 DEPENDENCIES
   autotest
   ffi
+  passenger
   rack
   rspec
   thin

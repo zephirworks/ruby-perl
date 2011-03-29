@@ -26,7 +26,13 @@ module Perl
     end
 
     def clean_env(hash)
-      hash.dup.tap do |h|
+      ret = hash.dup
+      if defined?(PhusionPassenger)
+        ret = ret.reject do |k,v|
+          v.is_a?(PhusionPassenger::Utils::RewindableInput)
+        end
+      end
+      ret.tap do |h|
         ["async.close"].each do |k|
           if h.has_key?(k)
             puts "Cannot handle env['#{k}'] (#{k} => #{h[k].inspect}), skipping"
