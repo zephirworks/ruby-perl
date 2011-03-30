@@ -1,0 +1,4 @@
+examples/passenger/*.lock
+examples/passenger/*.log
+examples/passenger/*.pid
+examples/passenger/tmp/*
