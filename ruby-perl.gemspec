@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{ruby-perl}
-  s.version = "0.99.15j"
+  s.version = "04.01.2011"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6")
   s.rubygems_version = %q{1.3.6}
