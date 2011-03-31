@@ -121,3 +121,16 @@ In the previous snippet we first define a Perl `sub` and we assign it to
 the `@func` instance variable; we then call it passing a String. For all
 intents and purposes, `@func` is now a lambda you can pass around and call,
 only it's implemented in Perl.
+
+Bug reports
+-----------
+
+ruby-perl is rather well test with RSpec, however you may still find a few
+bugs. Please report them any [issue](https://github.com/zephirworks/ruby-perl/issues)
+you may find.
+
+Copyright and license
+---------------------
+
+Copyright (c) 2011 ZephirWorks.
+This code is released under the MIT license.
