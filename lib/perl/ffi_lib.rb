@@ -5,7 +5,7 @@ module Perl
         require 'perl/internal'
         extend FFI::Library
 
-        klass.ffi_lib '/System/Library/Perl/5.10.0/darwin-thread-multi-2level/CORE/libperl.dylib'
+        klass.ffi_lib Perl::FFILib::shlib
 
         # PERL_SYS_INIT3()
         attach_function 'Perl_sys_init3', [:int, :pointer, :pointer], :void
@@ -60,6 +60,19 @@ module Perl
           Perl::Internal.new(Perl.PL_curinterp)
         end
       end
+    end
+
+  private
+    def self.archlib
+      `perl -MConfig -e 'print $Config{archlib}'`
+    end
+
+    def self.so_ext
+      `perl -MConfig -e 'print $Config{so}'`
+    end
+
+    def self.shlib
+      "#{archlib}/CORE/libperl.#{so_ext}"
     end
   end
 end
