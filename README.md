@@ -16,6 +16,11 @@ For perlists:
 Run your Perl application over industry-standard, enterprise-grade MRI Ruby,
 Rack and Passenger!
 
+Background story
+----------------
+
+Check out our announce [blog post](http://blog.zephirworks.com/47768566) for the story behind this.
+
 Getting started
 ===============
 
