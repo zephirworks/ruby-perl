@@ -1,0 +1,7 @@
+Changes since 04.01.2011:
+
+* Fixed shlib autodetection on Ubuntu (and possibly other Linux distros).
+
+  Reported by: botp [botpena = gmail.com]
+
+Version 04.01.2011: first release
