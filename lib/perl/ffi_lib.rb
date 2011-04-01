@@ -5,7 +5,7 @@ module Perl
         require 'perl/internal'
         extend FFI::Library
 
-        klass.ffi_lib Perl::FFILib::shlib
+        Perl::FFILib::load(klass)
 
         # PERL_SYS_INIT3()
         attach_function 'Perl_sys_init3', [:int, :pointer, :pointer], :void
@@ -63,6 +63,14 @@ module Perl
     end
 
   private
+    def self.load(klass)
+      begin
+        klass.ffi_lib Perl::FFILib::shlib
+      rescue Exception
+        klass.ffi_lib "/usr/lib/libperl.#{so_ext}"
+      end
+    end
+
     def self.archlib
       `perl -MConfig -e 'print $Config{archlib}'`
     end
