@@ -67,7 +67,7 @@ module Perl
       begin
         klass.ffi_lib Perl::FFILib::shlib
       rescue Exception
-        klass.ffi_lib "/usr/lib/libperl.#{so_ext}"
+        klass.ffi_lib "/usr/lib/#{libperl}"
       end
     end
 
@@ -79,8 +79,13 @@ module Perl
       `perl -MConfig -e 'print $Config{so}'`
     end
 
-    def self.shlib
-      "#{archlib}/CORE/libperl.#{so_ext}"
+    def self.libperl
+      `perl -MConfig -e 'print $Config{libperl}'`
     end
+
+    def self.shlib
+      "#{archlib}/CORE/#{libperl}"
+    end
+
   end
 end
