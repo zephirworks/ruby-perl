@@ -127,6 +127,12 @@ the `@func` instance variable; we then call it passing a String. For all
 intents and purposes, `@func` is now a lambda you can pass around and call,
 only it's implemented in Perl.
 
+Contributors
+============
+
+* Andrea Campi (@andreacampi)
+* Chris Weyl (@RsrchBoy)
+
 Bug reports
 -----------
 
