@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.email = %w{andrea.campi@zephirworks.com}
   s.homepage = %q{http://github.com/zephirworks/ruby-perl}
   s.rubyforge_project = %q{ruby-perl}
-  s.has_rdoc = false
   s.files = [
     ".autotest",
     ".rspec",
