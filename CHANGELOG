@@ -1,4 +1,10 @@
-Changes since 04.01.2011:
+Version 04.01.2011.2:
+
+* use Config{libperl}
+
+  RsrchBoy
+
+Version 04.01.2011.1:
 
 * Fixed shlib autodetection on Ubuntu (and possibly other Linux distros).
 
