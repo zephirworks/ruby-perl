@@ -134,14 +134,14 @@ Contributors
 * Chris Weyl (@RsrchBoy)
 
 Bug reports
------------
+===========
 
 ruby-perl is rather well test with RSpec, however you may still find a few
 bugs. Please report them any [issue](https://github.com/zephirworks/ruby-perl/issues)
 you may find.
 
 Copyright and license
----------------------
+=====================
 
 Copyright (c) 2011 ZephirWorks.
 This code is released under the MIT license.
